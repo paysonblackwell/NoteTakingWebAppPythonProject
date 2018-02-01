@@ -1,0 +1,26 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Note Taking App</h1>
+    <p class="lead">Log In</p>
+</div>
+<form role="form" action=" /sign_up">
+    <button type="submit" class="btn btn-default">New User?</button>
+</form>
+<form action="/login" method="post">
+    {% if error %}
+    <p style="color:red;">
+        <strong>Error:</strong> {{ error }}
+        {% endif %}
+        <div class="form-group">
+            <label class="control-label" for="usernameInput">Log In</label>
+            <input type="text" class="form-control" id="usernameSubmit" name="username" placeholder="Enter Username" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="passwordSubmit" name="password" placeholder="Enter Password" required>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+</form>
+{% endblock %}

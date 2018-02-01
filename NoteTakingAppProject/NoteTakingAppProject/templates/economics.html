@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>{{title}}</h1>
+</div>
+
+
+<div class="row">
+    {% for x in range(topicNames|length) %}
+    <div class="col-md-4">
+        <h2>
+            {{topicNames[x]}}
+        </h2>
+        <p>
+            {{notesNames[x]}}
+        </p>
+    </div>
+    {%  endfor %}
+</div>
+
+
+<form role="form" method="post">
+    <div class="form-group">
+        <label class="control-label" for="topicInput">Topic:</label>
+        <input type="text" class="form-control" id="topicSubmit" name="Topic" placeholder="Enter Topic to Add, Delete, or Update" required>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="notesInput">Notes:</label>
+        <textarea class="form-control" id="notesSubmit" name="Notes" placeholder="Enter Notes or Type 'delete this' to remove topic. To Update, Typing here will over write your Notes, so I recommend pasting your old Notes here first." rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+{% endblock %}
